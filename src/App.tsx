@@ -203,32 +203,43 @@ function App() {
   if (showLanding) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 text-white overflow-hidden">
-        {/* Landing Page */}
+        {/* Landing Page with Gallery Background */}
         <div className="relative min-h-screen flex items-center justify-center">
-          {/* Subtle Background */}
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] rounded-full blur-3xl"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-[#d8a0fe] to-[#7683d9] rounded-full blur-3xl"></div>
+          {/* Gallery Background Image */}
+          <div className="absolute inset-0">
+            <div 
+              className="w-full h-full bg-cover bg-center bg-no-repeat"
+              style={{
+                backgroundImage: `url('/Whisk_768036511c.jpg')`
+              }}
+            >
+              {/* Strong overlay layers for maximum text readability */}
+              <div className="absolute inset-0 bg-black/60"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/60"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50"></div>
+            </div>
           </div>
 
-          {/* Content */}
-          <div className="relative z-10 text-center space-y-8 px-4">
-            <div className="space-y-6">
-              <h1 className="text-6xl md:text-8xl font-bold bg-gradient-to-r from-[#7683d9] via-[#d8a0fe] to-[#7683d9] bg-clip-text text-transparent">
-                Elena Rodriguez
+          {/* Content with Enhanced Readability */}
+          <div className="relative z-10 text-center space-y-6 sm:space-y-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div className="space-y-4 sm:space-y-6">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-white drop-shadow-2xl leading-tight">
+                <span className="block mb-2 sm:mb-4">Elena Rodriguez</span>
               </h1>
-              <p className="text-2xl md:text-3xl text-[#d8a0fe] font-light">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#d8a0fe] font-light drop-shadow-xl">
                 Traditional Artist • Contemporary Vision
               </p>
-              <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Exploring the intersection of classical techniques and modern expression through oil paintings, watercolors, and mixed media works
-              </p>
+              <div className="bg-black/50 backdrop-blur-md p-4 sm:p-6 lg:p-8 rounded-2xl border border-white/20 max-w-4xl mx-auto">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white leading-relaxed drop-shadow-lg">
+                  Exploring the intersection of classical techniques and modern expression through oil paintings, watercolors, and mixed media works
+                </p>
+              </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pt-4 sm:pt-6">
               <button 
                 onClick={() => setShowLanding(false)}
-                className="group relative px-10 py-4 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] rounded-full font-semibold text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#7683d9]/25"
+                className="w-full sm:w-auto group relative px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] rounded-full font-semibold text-sm sm:text-base lg:text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#7683d9]/25 min-w-[200px]"
               >
                 <span className="relative z-10">Enter Gallery</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#d8a0fe] to-[#7683d9] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -239,7 +250,7 @@ function App() {
                   setShowLanding(false);
                   setTimeout(() => scrollToSection('about'), 100);
                 }}
-                className="px-10 py-4 border-2 border-[#7683d9] rounded-full font-semibold text-lg hover:border-[#d8a0fe] hover:text-[#d8a0fe] transition-all duration-500 hover:shadow-lg hover:shadow-[#7683d9]/20"
+                className="w-full sm:w-auto px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border-2 border-[#7683d9] bg-black/30 backdrop-blur-md rounded-full font-semibold text-sm sm:text-base lg:text-lg hover:border-[#d8a0fe] hover:text-[#d8a0fe] hover:bg-black/50 transition-all duration-500 hover:shadow-lg hover:shadow-[#7683d9]/20 min-w-[200px]"
               >
                 About the Artist
               </button>
@@ -252,31 +263,31 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 text-white">
-      {/* Navigation */}
+      {/* Responsive Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrollY > 50 ? 'bg-slate-900/90 backdrop-blur-md border-b border-[#7683d9]/30 shadow-lg shadow-[#7683d9]/10' : 'bg-transparent'
+        scrollY > 50 ? 'bg-slate-900/95 backdrop-blur-md border-b border-[#7683d9]/30 shadow-lg shadow-[#7683d9]/10' : 'bg-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+          <div className="flex justify-between items-center py-3 sm:py-4">
+            <div className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
               Elena Rodriguez
             </div>
             
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-8">
-              <button onClick={() => scrollToSection('hero')} className="hover:text-[#d8a0fe] transition-colors duration-300 relative group">
+            <div className="hidden md:flex space-x-4 lg:space-x-8">
+              <button onClick={() => scrollToSection('hero')} className="text-sm lg:text-base hover:text-[#d8a0fe] transition-colors duration-300 relative group">
                 Home
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] group-hover:w-full transition-all duration-300"></span>
               </button>
-              <button onClick={() => scrollToSection('gallery')} className="hover:text-[#d8a0fe] transition-colors duration-300 relative group">
+              <button onClick={() => scrollToSection('gallery')} className="text-sm lg:text-base hover:text-[#d8a0fe] transition-colors duration-300 relative group">
                 Gallery
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] group-hover:w-full transition-all duration-300"></span>
               </button>
-              <button onClick={() => scrollToSection('about')} className="hover:text-[#d8a0fe] transition-colors duration-300 relative group">
+              <button onClick={() => scrollToSection('about')} className="text-sm lg:text-base hover:text-[#d8a0fe] transition-colors duration-300 relative group">
                 About
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] group-hover:w-full transition-all duration-300"></span>
               </button>
-              <button onClick={() => scrollToSection('contact')} className="hover:text-[#d8a0fe] transition-colors duration-300 relative group">
+              <button onClick={() => scrollToSection('contact')} className="text-sm lg:text-base hover:text-[#d8a0fe] transition-colors duration-300 relative group">
                 Contact
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] group-hover:w-full transition-all duration-300"></span>
               </button>
@@ -284,21 +295,21 @@ function App() {
 
             {/* Mobile Navigation Toggle */}
             <button 
-              className="md:hidden hover:text-[#d8a0fe] transition-colors duration-300"
+              className="md:hidden hover:text-[#d8a0fe] transition-colors duration-300 p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
 
           {/* Mobile Navigation Menu */}
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-[#7683d9]/30 bg-slate-900/95 backdrop-blur-md">
-              <div className="flex flex-col space-y-4">
-                <button onClick={() => scrollToSection('hero')} className="text-left hover:text-[#d8a0fe] transition-colors duration-300">Home</button>
-                <button onClick={() => scrollToSection('gallery')} className="text-left hover:text-[#d8a0fe] transition-colors duration-300">Gallery</button>
-                <button onClick={() => scrollToSection('about')} className="text-left hover:text-[#d8a0fe] transition-colors duration-300">About</button>
-                <button onClick={() => scrollToSection('contact')} className="text-left hover:text-[#d8a0fe] transition-colors duration-300">Contact</button>
+              <div className="flex flex-col space-y-4 px-2">
+                <button onClick={() => scrollToSection('hero')} className="text-left text-base hover:text-[#d8a0fe] transition-colors duration-300 py-2">Home</button>
+                <button onClick={() => scrollToSection('gallery')} className="text-left text-base hover:text-[#d8a0fe] transition-colors duration-300 py-2">Gallery</button>
+                <button onClick={() => scrollToSection('about')} className="text-left text-base hover:text-[#d8a0fe] transition-colors duration-300 py-2">About</button>
+                <button onClick={() => scrollToSection('contact')} className="text-left text-base hover:text-[#d8a0fe] transition-colors duration-300 py-2">Contact</button>
               </div>
             </div>
           )}
@@ -312,7 +323,7 @@ function App() {
           <div 
             className="w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('/Whisk_9faee56531.jpg')`
+              backgroundImage: `url('/Whisk_768036511c.jpg')`
             }}
           >
             {/* Multiple overlay layers for better text contrast */}
@@ -323,31 +334,33 @@ function App() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center space-y-8 px-4 max-w-5xl mx-auto">
-          <div className="space-y-8">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight text-white drop-shadow-2xl">
-              Where <span className="bg-gradient-to-r from-[#7683d9] via-[#d8a0fe] to-[#7683d9] bg-clip-text text-transparent">Tradition</span>
-              <br />Meets <span className="bg-gradient-to-r from-[#d8a0fe] via-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">Innovation</span>
+        <div className="relative z-10 text-center space-y-6 sm:space-y-8 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+          <div className="space-y-6 sm:space-y-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight text-white drop-shadow-2xl">
+              <span className="block mb-2 sm:mb-4">Where <span className="bg-gradient-to-r from-[#7683d9] via-[#d8a0fe] to-[#7683d9] bg-clip-text text-transparent">Tradition</span></span>
+              <span className="block">Meets <span className="bg-gradient-to-r from-[#d8a0fe] via-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">Innovation</span></span>
             </h1>
-            <p className="text-xl md:text-2xl text-[#d8a0fe] font-light drop-shadow-lg">
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#d8a0fe] font-light drop-shadow-lg">
               Contemporary Traditional Artist
             </p>
-            <p className="text-lg text-white leading-relaxed max-w-3xl mx-auto drop-shadow-lg bg-slate-900/30 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
-              Exploring the intersection of classical techniques and modern expression through oil paintings, watercolors, and mixed media works that capture the beauty of our natural world and human experience.
-            </p>
+            <div className="bg-slate-900/60 backdrop-blur-md p-4 sm:p-6 lg:p-8 rounded-2xl border border-white/20 max-w-4xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white leading-relaxed drop-shadow-lg">
+                Exploring the intersection of classical techniques and modern expression through oil paintings, watercolors, and mixed media works that capture the beauty of our natural world and human experience.
+              </p>
+            </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-4 sm:pt-6">
             <button 
               onClick={() => scrollToSection('gallery')}
-              className="group relative px-10 py-4 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] rounded-full font-semibold text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#7683d9]/25"
+              className="w-full sm:w-auto group relative px-6 sm:px-8 lg:px-10 py-3 sm:py-4 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] rounded-full font-semibold text-sm sm:text-base lg:text-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#7683d9]/25 min-w-[200px]"
             >
               <span className="relative z-10">Explore Gallery</span>
               <div className="absolute inset-0 bg-gradient-to-r from-[#d8a0fe] to-[#7683d9] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="px-10 py-4 border-2 border-[#7683d9] rounded-full font-semibold text-lg hover:border-[#d8a0fe] hover:text-[#d8a0fe] transition-all duration-500 backdrop-blur-sm hover:shadow-lg hover:shadow-[#7683d9]/20 bg-white/10"
+              className="w-full sm:w-auto px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border-2 border-[#7683d9] bg-white/10 backdrop-blur-md rounded-full font-semibold text-sm sm:text-base lg:text-lg hover:border-[#d8a0fe] hover:text-[#d8a0fe] hover:bg-white/20 transition-all duration-500 hover:shadow-lg hover:shadow-[#7683d9]/20 min-w-[200px]"
             >
               Commission Work
             </button>
@@ -356,54 +369,55 @@ function App() {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-20 bg-gradient-to-b from-slate-900 to-indigo-900">
+      <section id="gallery" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-slate-900 to-indigo-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
               Gallery
             </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
               A curated collection of works spanning various mediums and subjects, each piece telling its own unique story.
             </p>
           </div>
 
           {/* Category Filter */}
-          <div className="mb-12">
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <div className="mb-8 sm:mb-12">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4 mb-6 sm:mb-8">
               {categories.map((category) => (
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-6 py-3 rounded-full font-medium transition-all duration-500 hover:scale-105 ${
+                  className={`px-3 sm:px-4 lg:px-6 py-2 sm:py-3 rounded-full font-medium text-xs sm:text-sm lg:text-base transition-all duration-500 hover:scale-105 ${
                     selectedCategory === category.id
                       ? 'bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] text-white shadow-lg shadow-[#7683d9]/30'
                       : 'bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white border border-[#7683d9]/30 hover:border-[#d8a0fe]/50'
                   }`}
                 >
-                  {category.name} ({category.count})
+                  <span className="hidden sm:inline">{category.name} ({category.count})</span>
+                  <span className="sm:hidden">{category.name.split(' ')[0]} ({category.count})</span>
                 </button>
               ))}
             </div>
 
             {/* View Mode Toggle */}
-            <div className="flex justify-center items-center gap-4">
-              <span className="text-slate-300">View:</span>
+            <div className="flex justify-center items-center gap-3 sm:gap-4">
+              <span className="text-slate-300 text-sm sm:text-base">View:</span>
               <div className="flex bg-slate-800 rounded-lg p-1 border border-[#7683d9]/30">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-3 rounded-md transition-all duration-300 ${
+                  className={`p-2 sm:p-3 rounded-md transition-all duration-300 ${
                     viewMode === 'grid' ? 'bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] text-white shadow-lg' : 'text-slate-300 hover:text-white'
                   }`}
                 >
-                  <Grid size={20} />
+                  <Grid size={16} className="sm:w-5 sm:h-5" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-3 rounded-md transition-all duration-300 ${
+                  className={`p-2 sm:p-3 rounded-md transition-all duration-300 ${
                     viewMode === 'list' ? 'bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] text-white shadow-lg' : 'text-slate-300 hover:text-white'
                   }`}
                 >
-                  <List size={20} />
+                  <List size={16} className="sm:w-5 sm:h-5" />
                 </button>
               </div>
             </div>
@@ -412,19 +426,19 @@ function App() {
           {/* Artworks Grid/List */}
           <div className={`${
             viewMode === 'grid' 
-              ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8' 
-              : 'space-y-8'
+              ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:gap-6 lg:gap-8' 
+              : 'space-y-4 sm:space-y-6 lg:space-y-8'
           }`}>
             {filteredArtworks.map((artwork, index) => (
               <div 
                 key={artwork.id}
-                className={`group cursor-pointer relative overflow-hidden rounded-2xl bg-slate-800 border border-[#7683d9]/30 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-[#7683d9]/20 hover:border-[#d8a0fe]/50 ${
-                  viewMode === 'list' ? 'flex gap-6 p-6' : ''
+                className={`group cursor-pointer relative overflow-hidden rounded-xl sm:rounded-2xl bg-slate-800 border border-[#7683d9]/30 transition-all duration-700 hover:scale-105 hover:shadow-2xl hover:shadow-[#7683d9]/20 hover:border-[#d8a0fe]/50 ${
+                  viewMode === 'list' ? 'flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-6' : ''
                 }`}
                 onClick={() => setSelectedArtwork(artwork)}
               >
-                <div className={`relative overflow-hidden rounded-xl ${
-                  viewMode === 'list' ? 'w-64 h-48 flex-shrink-0' : 'w-full h-80'
+                <div className={`relative overflow-hidden rounded-lg sm:rounded-xl ${
+                  viewMode === 'list' ? 'w-full sm:w-48 lg:w-64 h-48 sm:h-36 lg:h-48 flex-shrink-0' : 'w-full h-48 sm:h-64 lg:h-80'
                 }`}>
                   <img 
                     src={artwork.image} 
@@ -434,7 +448,7 @@ function App() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   {/* Category Badge */}
-                  <div className="absolute top-4 left-4 bg-gradient-to-r from-[#7683d9]/80 to-[#d8a0fe]/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-white border border-[#7683d9]/30">
+                  <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-gradient-to-r from-[#7683d9]/80 to-[#d8a0fe]/80 backdrop-blur-sm px-2 sm:px-3 py-1 rounded-full text-xs font-medium text-white border border-[#7683d9]/30">
                     {categories.find(c => c.id === artwork.category)?.name}
                   </div>
                 </div>
@@ -442,21 +456,21 @@ function App() {
                 <div className={`${
                   viewMode === 'list' 
                     ? 'flex-1 flex flex-col justify-center' 
-                    : 'absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500'
+                    : 'absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500'
                 }`}>
-                  <h3 className={`font-bold mb-2 ${viewMode === 'list' ? 'text-2xl text-white' : 'text-xl'}`}>
+                  <h3 className={`font-bold mb-1 sm:mb-2 ${viewMode === 'list' ? 'text-lg sm:text-xl lg:text-2xl text-white' : 'text-base sm:text-lg lg:text-xl'}`}>
                     {artwork.title}
                   </h3>
-                  <p className={`text-slate-300 text-sm mb-1 ${viewMode === 'list' ? 'text-base' : ''}`}>
+                  <p className={`text-slate-300 text-xs sm:text-sm mb-1 ${viewMode === 'list' ? 'text-sm sm:text-base' : ''}`}>
                     {artwork.medium}
                   </p>
-                  <p className={`text-slate-400 text-sm mb-2 ${viewMode === 'list' ? 'text-base' : ''}`}>
+                  <p className={`text-slate-400 text-xs sm:text-sm mb-2 ${viewMode === 'list' ? 'text-sm sm:text-base' : ''}`}>
                     {artwork.dimensions} • {artwork.year}
                   </p>
                   {viewMode === 'list' && (
-                    <p className="text-slate-300 mb-4 line-clamp-2">{artwork.description}</p>
+                    <p className="text-slate-300 mb-3 sm:mb-4 line-clamp-2 text-sm sm:text-base">{artwork.description}</p>
                   )}
-                  <p className={`text-[#d8a0fe] font-semibold ${viewMode === 'list' ? 'text-xl' : ''}`}>
+                  <p className={`text-[#d8a0fe] font-semibold ${viewMode === 'list' ? 'text-lg sm:text-xl' : 'text-sm sm:text-base'}`}>
                     {artwork.price}
                   </p>
                 </div>
@@ -467,52 +481,52 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-gradient-to-b from-indigo-900 to-slate-900">
+      <section id="about" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-indigo-900 to-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <h2 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <div className="space-y-6 sm:space-y-8">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
                 About Elena
               </h2>
-              <div className="space-y-6 text-slate-300">
-                <p className="text-lg leading-relaxed">
+              <div className="space-y-4 sm:space-y-6 text-slate-300">
+                <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
                   Elena Rodriguez is a contemporary traditional artist based in Santa Fe, New Mexico. With over 15 years of experience, she specializes in oil paintings, watercolors, and mixed media works that explore the relationship between humanity and nature.
                 </p>
-                <p className="text-lg leading-relaxed">
+                <p className="text-sm sm:text-base lg:text-lg leading-relaxed">
                   Her work has been featured in galleries across the Southwest, and she has received numerous awards for her landscape and portrait paintings. Elena draws inspiration from the natural beauty of the American Southwest and the rich artistic traditions of her heritage.
                 </p>
-                <blockquote className="text-xl italic text-[#d8a0fe] border-l-4 border-[#7683d9] pl-6 bg-slate-800/30 p-6 rounded-r-xl">
+                <blockquote className="text-base sm:text-lg lg:text-xl italic text-[#d8a0fe] border-l-4 border-[#7683d9] pl-4 sm:pl-6 bg-slate-800/30 p-4 sm:p-6 rounded-r-xl">
                   "Art is a bridge between the seen and unseen, the known and unknown. Through my paintings, I aim to capture not just the physical beauty of our world, but the emotions and stories that lie beneath the surface."
                 </blockquote>
               </div>
               
-              <div className="grid grid-cols-3 gap-6 text-center">
-                <div className="bg-gradient-to-br from-slate-800 to-indigo-800 p-6 rounded-xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl font-bold text-[#d8a0fe] mb-2">15+</div>
-                  <div className="text-slate-300">Years Experience</div>
+              <div className="grid grid-cols-3 gap-3 sm:gap-4 lg:gap-6 text-center">
+                <div className="bg-gradient-to-br from-slate-800 to-indigo-800 p-3 sm:p-4 lg:p-6 rounded-xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-300 hover:scale-105">
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#d8a0fe] mb-1 sm:mb-2">15+</div>
+                  <div className="text-slate-300 text-xs sm:text-sm lg:text-base">Years Experience</div>
                 </div>
-                <div className="bg-gradient-to-br from-slate-800 to-indigo-800 p-6 rounded-xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl font-bold text-[#d8a0fe] mb-2">200+</div>
-                  <div className="text-slate-300">Works Created</div>
+                <div className="bg-gradient-to-br from-slate-800 to-indigo-800 p-3 sm:p-4 lg:p-6 rounded-xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-300 hover:scale-105">
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#d8a0fe] mb-1 sm:mb-2">200+</div>
+                  <div className="text-slate-300 text-xs sm:text-sm lg:text-base">Works Created</div>
                 </div>
-                <div className="bg-gradient-to-br from-slate-800 to-indigo-800 p-6 rounded-xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-300 hover:scale-105">
-                  <div className="text-3xl font-bold text-[#d8a0fe] mb-2">50+</div>
-                  <div className="text-slate-300">Exhibitions</div>
+                <div className="bg-gradient-to-br from-slate-800 to-indigo-800 p-3 sm:p-4 lg:p-6 rounded-xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-300 hover:scale-105">
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#d8a0fe] mb-1 sm:mb-2">50+</div>
+                  <div className="text-slate-300 text-xs sm:text-sm lg:text-base">Exhibitions</div>
                 </div>
               </div>
             </div>
             
-            <div className="relative">
-              <div className="relative overflow-hidden rounded-2xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-500">
+            <div className="relative order-first lg:order-last">
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-500">
                 <img 
                   src="https://images.pexels.com/photos/3778619/pexels-photo-3778619.jpeg?auto=compress&cs=tinysrgb&w=800" 
                   alt="Elena Rodriguez in her studio"
-                  className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700"
+                  className="w-full h-64 sm:h-80 lg:h-[600px] object-cover hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
               </div>
-              <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] p-6 rounded-xl shadow-2xl border border-[#7683d9]/30 hover:scale-105 transition-transform duration-300">
-                <p className="text-white font-semibold">Currently working on a new landscape series</p>
+              <div className="absolute -bottom-3 sm:-bottom-6 -right-3 sm:-right-6 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] p-3 sm:p-4 lg:p-6 rounded-xl shadow-2xl border border-[#7683d9]/30 hover:scale-105 transition-transform duration-300 max-w-[200px] sm:max-w-none">
+                <p className="text-white font-semibold text-xs sm:text-sm lg:text-base">Currently working on a new landscape series</p>
               </div>
             </div>
           </div>
@@ -520,80 +534,80 @@ function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gradient-to-b from-slate-900 to-indigo-900">
+      <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-slate-900 to-indigo-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
               Get In Touch
             </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
               Interested in commissioning a piece or learning more about available works? I'd love to hear from you.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16">
-            <div className="space-y-8">
-              <div className="flex items-center space-x-4 group hover:scale-105 transition-transform duration-300">
-                <div className="bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] p-4 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#7683d9]/20">
-                  <Mail size={24} />
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
+            <div className="space-y-6 sm:space-y-8">
+              <div className="flex items-center space-x-3 sm:space-x-4 group hover:scale-105 transition-transform duration-300">
+                <div className="bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] p-3 sm:p-4 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#7683d9]/20">
+                  <Mail size={20} className="sm:w-6 sm:h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1 text-lg text-white">Email</h3>
-                  <p className="text-slate-300">elena@elenarodriguezart.com</p>
+                  <h3 className="font-semibold mb-1 text-base sm:text-lg text-white">Email</h3>
+                  <p className="text-slate-300 text-sm sm:text-base">elena@elenarodriguezart.com</p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 group hover:scale-105 transition-transform duration-300">
-                <div className="bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] p-4 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#7683d9]/20">
-                  <Phone size={24} />
+              <div className="flex items-center space-x-3 sm:space-x-4 group hover:scale-105 transition-transform duration-300">
+                <div className="bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] p-3 sm:p-4 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#7683d9]/20">
+                  <Phone size={20} className="sm:w-6 sm:h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1 text-lg text-white">Phone</h3>
-                  <p className="text-slate-300">(505) 555-0123</p>
+                  <h3 className="font-semibold mb-1 text-base sm:text-lg text-white">Phone</h3>
+                  <p className="text-slate-300 text-sm sm:text-base">(505) 555-0123</p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 group hover:scale-105 transition-transform duration-300">
-                <div className="bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] p-4 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#7683d9]/20">
-                  <MapPin size={24} />
+              <div className="flex items-center space-x-3 sm:space-x-4 group hover:scale-105 transition-transform duration-300">
+                <div className="bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] p-3 sm:p-4 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-[#7683d9]/20">
+                  <MapPin size={20} className="sm:w-6 sm:h-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-1 text-lg text-white">Studio</h3>
-                  <p className="text-slate-300">Santa Fe, New Mexico</p>
+                  <h3 className="font-semibold mb-1 text-base sm:text-lg text-white">Studio</h3>
+                  <p className="text-slate-300 text-sm sm:text-base">Santa Fe, New Mexico</p>
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-slate-800 to-indigo-800 p-8 rounded-2xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-500">
-                <h3 className="text-2xl font-semibold mb-6 text-[#d8a0fe]">Commission Information</h3>
-                <ul className="text-slate-300 space-y-3">
+              <div className="bg-gradient-to-br from-slate-800 to-indigo-800 p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-500">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-[#d8a0fe]">Commission Information</h3>
+                <ul className="text-slate-300 space-y-2 sm:space-y-3 text-sm sm:text-base">
                   <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-[#d8a0fe] rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#d8a0fe] rounded-full flex-shrink-0"></div>
                     Custom portraits: Starting at $2,000
                   </li>
                   <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-[#d8a0fe] rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#d8a0fe] rounded-full flex-shrink-0"></div>
                     Landscape commissions: Starting at $2,500
                   </li>
                   <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-[#d8a0fe] rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#d8a0fe] rounded-full flex-shrink-0"></div>
                     Timeline: 6-10 weeks depending on size
                   </li>
                   <li className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-[#d8a0fe] rounded-full"></div>
+                    <div className="w-2 h-2 bg-[#d8a0fe] rounded-full flex-shrink-0"></div>
                     50% deposit required to begin
                   </li>
                 </ul>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-slate-800 to-indigo-800 p-8 rounded-2xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-500">
-              <h3 className="text-2xl font-semibold mb-6 text-[#d8a0fe]">Send a Message</h3>
-              <form className="space-y-6">
+            <div className="bg-gradient-to-br from-slate-800 to-indigo-800 p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-500">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold mb-4 sm:mb-6 text-[#d8a0fe]">Send a Message</h3>
+              <form className="space-y-4 sm:space-y-6">
                 <div>
                   <label className="block text-sm font-medium mb-2 text-slate-300">Name</label>
                   <input 
                     type="text" 
-                    className="w-full bg-slate-700 border border-[#7683d9]/30 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-[#7683d9] focus:border-transparent transition-all duration-300 hover:border-[#d8a0fe]/50"
+                    className="w-full bg-slate-700 border border-[#7683d9]/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white text-sm sm:text-base focus:ring-2 focus:ring-[#7683d9] focus:border-transparent transition-all duration-300 hover:border-[#d8a0fe]/50"
                     placeholder="Your name"
                   />
                 </div>
@@ -601,13 +615,13 @@ function App() {
                   <label className="block text-sm font-medium mb-2 text-slate-300">Email</label>
                   <input 
                     type="email" 
-                    className="w-full bg-slate-700 border border-[#7683d9]/30 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-[#7683d9] focus:border-transparent transition-all duration-300 hover:border-[#d8a0fe]/50"
+                    className="w-full bg-slate-700 border border-[#7683d9]/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white text-sm sm:text-base focus:ring-2 focus:ring-[#7683d9] focus:border-transparent transition-all duration-300 hover:border-[#d8a0fe]/50"
                     placeholder="your@email.com"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2 text-slate-300">Subject</label>
-                  <select className="w-full bg-slate-700 border border-[#7683d9]/30 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-[#7683d9] focus:border-transparent transition-all duration-300 hover:border-[#d8a0fe]/50">
+                  <select className="w-full bg-slate-700 border border-[#7683d9]/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white text-sm sm:text-base focus:ring-2 focus:ring-[#7683d9] focus:border-transparent transition-all duration-300 hover:border-[#d8a0fe]/50">
                     <option>General Inquiry</option>
                     <option>Commission Request</option>
                     <option>Purchase Existing Work</option>
@@ -617,12 +631,12 @@ function App() {
                 <div>
                   <label className="block text-sm font-medium mb-2 text-slate-300">Message</label>
                   <textarea 
-                    rows={5}
-                    className="w-full bg-slate-700 border border-[#7683d9]/30 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-[#7683d9] focus:border-transparent transition-all duration-300 hover:border-[#d8a0fe]/50"
+                    rows={4}
+                    className="w-full bg-slate-700 border border-[#7683d9]/30 rounded-lg px-3 sm:px-4 py-2 sm:py-3 text-white text-sm sm:text-base focus:ring-2 focus:ring-[#7683d9] focus:border-transparent transition-all duration-300 hover:border-[#d8a0fe]/50 resize-none"
                     placeholder="Tell me about your project or inquiry..."
                   />
                 </div>
-                <button className="w-full bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] hover:from-[#d8a0fe] hover:to-[#7683d9] py-3 rounded-lg font-semibold transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-[#7683d9]/30">
+                <button className="w-full bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] hover:from-[#d8a0fe] hover:to-[#7683d9] py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-[#7683d9]/30">
                   Send Message
                 </button>
               </form>
@@ -632,15 +646,15 @@ function App() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 py-12 border-t border-[#7683d9]/30">
+      <footer className="bg-slate-900 py-8 sm:py-12 border-t border-[#7683d9]/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="mb-6">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent mb-2">
+          <div className="mb-4 sm:mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent mb-2">
               Elena Rodriguez
             </h3>
-            <p className="text-slate-400">Traditional Art • Contemporary Expression</p>
+            <p className="text-slate-400 text-sm sm:text-base">Traditional Art • Contemporary Expression</p>
           </div>
-          <p className="text-slate-500">
+          <p className="text-slate-500 text-xs sm:text-sm">
             © 2024 Elena Rodriguez. All rights reserved.
           </p>
         </div>
@@ -648,66 +662,66 @@ function App() {
 
       {/* Artwork Modal */}
       {selectedArtwork && (
-        <div className="fixed inset-0 bg-slate-900/95 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
-          <div className="max-w-7xl w-full max-h-full overflow-y-auto bg-gradient-to-br from-slate-800 to-indigo-800 rounded-2xl border border-[#7683d9]/30 shadow-2xl shadow-[#7683d9]/20">
-            <div className="grid lg:grid-cols-2 gap-8 p-8">
+        <div className="fixed inset-0 bg-slate-900/95 flex items-center justify-center z-50 p-2 sm:p-4 backdrop-blur-sm">
+          <div className="max-w-7xl w-full max-h-full overflow-y-auto bg-gradient-to-br from-slate-800 to-indigo-800 rounded-xl sm:rounded-2xl border border-[#7683d9]/30 shadow-2xl shadow-[#7683d9]/20">
+            <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8">
               <div className="relative">
                 <img 
                   src={selectedArtwork.image} 
                   alt={selectedArtwork.title}
-                  className="w-full h-auto max-h-[700px] object-contain rounded-xl border border-[#7683d9]/30"
+                  className="w-full h-auto max-h-[300px] sm:max-h-[500px] lg:max-h-[700px] object-contain rounded-lg sm:rounded-xl border border-[#7683d9]/30"
                 />
                 
                 {/* Navigation Arrows */}
                 <button 
                   onClick={prevArtwork}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-[#7683d9]/80 to-[#d8a0fe]/80 hover:from-[#7683d9] hover:to-[#d8a0fe] p-3 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110 border border-[#7683d9]/30 shadow-lg shadow-[#7683d9]/20"
+                  className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-[#7683d9]/80 to-[#d8a0fe]/80 hover:from-[#7683d9] hover:to-[#d8a0fe] p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110 border border-[#7683d9]/30 shadow-lg shadow-[#7683d9]/20"
                 >
-                  <ChevronLeft size={24} />
+                  <ChevronLeft size={20} className="sm:w-6 sm:h-6" />
                 </button>
                 <button 
                   onClick={nextArtwork}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-[#7683d9]/80 to-[#d8a0fe]/80 hover:from-[#7683d9] hover:to-[#d8a0fe] p-3 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110 border border-[#7683d9]/30 shadow-lg shadow-[#7683d9]/20"
+                  className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-[#7683d9]/80 to-[#d8a0fe]/80 hover:from-[#7683d9] hover:to-[#d8a0fe] p-2 sm:p-3 rounded-full transition-all duration-300 backdrop-blur-sm hover:scale-110 border border-[#7683d9]/30 shadow-lg shadow-[#7683d9]/20"
                 >
-                  <ChevronRight size={24} />
+                  <ChevronRight size={20} className="sm:w-6 sm:h-6" />
                 </button>
               </div>
               
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 <div className="flex justify-between items-start">
                   <div>
-                    <h2 className="text-3xl lg:text-4xl font-bold mb-2 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
+                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
                       {selectedArtwork.title}
                     </h2>
-                    <p className="text-slate-400 text-lg">{selectedArtwork.year}</p>
+                    <p className="text-slate-400 text-base sm:text-lg">{selectedArtwork.year}</p>
                   </div>
                   <button 
                     onClick={() => setSelectedArtwork(null)}
                     className="text-slate-400 hover:text-white transition-colors duration-300 p-2 hover:bg-slate-700 rounded-full"
                   >
-                    <X size={24} />
+                    <X size={20} className="sm:w-6 sm:h-6" />
                   </button>
                 </div>
                 
-                <div className="space-y-6">
-                  <div className="flex flex-wrap gap-3">
-                    <span className="bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] px-4 py-2 rounded-full text-sm font-medium">
+                <div className="space-y-4 sm:space-y-6">
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
+                    <span className="bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-medium">
                       {selectedArtwork.medium}
                     </span>
-                    <span className="bg-slate-700 px-4 py-2 rounded-full text-sm border border-[#7683d9]/30">
+                    <span className="bg-slate-700 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm border border-[#7683d9]/30">
                       {selectedArtwork.dimensions}
                     </span>
-                    <span className="bg-slate-700 px-4 py-2 rounded-full text-sm border border-[#7683d9]/30">
+                    <span className="bg-slate-700 px-3 sm:px-4 py-1 sm:py-2 rounded-full text-xs sm:text-sm border border-[#7683d9]/30">
                       {categories.find(c => c.id === selectedArtwork.category)?.name}
                     </span>
                   </div>
                   
-                  <p className="text-slate-300 leading-relaxed text-lg">
+                  <p className="text-slate-300 leading-relaxed text-sm sm:text-base lg:text-lg">
                     {selectedArtwork.description}
                   </p>
                   
-                  <div className="flex items-center justify-between pt-6 border-t border-[#7683d9]/30">
-                    <span className="text-3xl font-bold bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pt-4 sm:pt-6 border-t border-[#7683d9]/30 gap-4">
+                    <span className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] bg-clip-text text-transparent">
                       {selectedArtwork.price}
                     </span>
                     <button 
@@ -715,7 +729,7 @@ function App() {
                         setSelectedArtwork(null);
                         scrollToSection('contact');
                       }}
-                      className="bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] hover:from-[#d8a0fe] hover:to-[#7683d9] px-8 py-3 rounded-full font-semibold transition-all duration-500 flex items-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-[#7683d9]/30"
+                      className="w-full sm:w-auto bg-gradient-to-r from-[#7683d9] to-[#d8a0fe] hover:from-[#d8a0fe] hover:to-[#7683d9] px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-500 flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-[#7683d9]/30"
                     >
                       Inquire <ExternalLink size={16} />
                     </button>

@@ -2,9 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Base responsive font sizes */
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 18px;
+  }
+}
+
 /* Custom scrollbar with theme colors */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+}
+
+@media (min-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -53,4 +82,92 @@ select:focus {
 ::-moz-selection {
   background: rgba(216, 160, 254, 0.3);
   color: white;
+}
+
+/* Responsive text shadows for better readability */
+.drop-shadow-2xl {
+  filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15)) drop-shadow(0 4px 6px rgb(0 0 0 / 0.1)) drop-shadow(0 2px 4px rgb(0 0 0 / 0.06));
+}
+
+@media (max-width: 639px) {
+  .drop-shadow-2xl {
+    filter: drop-shadow(0 10px 15px rgb(0 0 0 / 0.3)) drop-shadow(0 4px 6px rgb(0 0 0 / 0.2));
+  }
+}
+
+/* Enhanced button touch targets for mobile */
+@media (max-width: 639px) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Improved tap targets */
+@media (hover: none) and (pointer: coarse) {
+  button, 
+  [role="button"], 
+  input[type="submit"], 
+  input[type="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Better spacing for small screens */
+@media (max-width: 374px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Ensure readability on all screen sizes */
+@media (max-width: 639px) {
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+  }
+  
+  p, li, span {
+    line-height: 1.5;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gradient-to-r {
+    background: #7683d9;
+  }
+  
+  .text-slate-300 {
+    color: #e2e8f0;
+  }
+  
+  .text-slate-400 {
+    color: #cbd5e1;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .fixed,
+  .sticky {
+    position: static !important;
+  }
+  
+  .bg-gradient-to-r,
+  .bg-gradient-to-br,
+  .bg-gradient-to-b {
+    background: #1e293b !important;
+    color: #000 !important;
+  }
 }
