@@ -210,7 +210,7 @@ function App() {
             <div 
               className="w-full h-full bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: `url('/Whisk_768036511c.jpg')`
+                backgroundImage: `url('/Whisk_d69af66ee5.jpg')`
               }}
             >
               {/* Strong overlay layers for maximum text readability */}
@@ -323,7 +323,7 @@ function App() {
           <div 
             className="w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('/Whisk_768036511c.jpg')`
+              backgroundImage: `url('/Whisk_d69af66ee5.jpg')`
             }}
           >
             {/* Multiple overlay layers for better text contrast */}
@@ -519,8 +519,8 @@ function App() {
             <div className="relative order-first lg:order-last">
               <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border border-[#7683d9]/30 hover:border-[#d8a0fe]/50 transition-all duration-500">
                 <img 
-                  src="https://images.pexels.com/photos/3778619/pexels-photo-3778619.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                  alt="Elena Rodriguez in her studio"
+                  src="/Whisk_d69af66ee5.jpg" 
+                  alt="Elena Rodriguez working in her studio"
                   className="w-full h-64 sm:h-80 lg:h-[600px] object-cover hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
