@@ -210,7 +210,7 @@ function App() {
             <div 
               className="w-full h-full bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: `url('/Whisk_d69af66ee5.jpg')`
+                backgroundImage: `url('/Whisk_768036511c.jpg')`
               }}
             >
               {/* Strong overlay layers for maximum text readability */}
@@ -323,7 +323,7 @@ function App() {
           <div 
             className="w-full h-full bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: `url('/Whisk_d69af66ee5.jpg')`
+              backgroundImage: `url('/Whisk_768036511c.jpg')`
             }}
           >
             {/* Multiple overlay layers for better text contrast */}
